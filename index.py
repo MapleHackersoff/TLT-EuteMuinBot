@@ -13,10 +13,7 @@ from discord.ext import commands
 from email.mime.text import MIMEText
 from email.header import Header
 from colorama import Fore, init
-email1p = "1 email password"
-email2p = "2 email password"
-email3p = "3 email password"
-emails = [ "email1", "email2", "email3" ]
+emails = [ "youremail@gmail.com", "youremail2@gmail.com", "youremail3@gmail.com" ]
 init(convert=True)
 bot = commands.Bot(command_prefix="$")
 bot.remove_command('help')
@@ -29,21 +26,24 @@ async def on_ready():
 @bot.command()
 async def help(ctx):
     await ctx.message.delete()
-    embed=discord.Embed(title="TLTcommands", color=0x9e64b9)
+    embed=discord.Embed(title="EuteMuin Commands", color=0x9e64b9)
+    # embed.add_field(name="$", value="", inline=True)
     embed.add_field(name="$help", value="Shows this message", inline=True)
     embed.add_field(name="$token", value="Steal some1`s token by User ID ", inline=True)
-    embed.add_field(name="$ftoken", value="Forcing token of user by User ID (Deleted)", inline=True)
     embed.add_field(name="$eumu", value="Returns all EuteMuin servers.", inline=True)
     embed.add_field(name="$usneme", value="Get user`s username by User ID", inline=True)
     embed.add_field(name="$tokenmap", value="Token Map", inline=True)
+
+    embed.add_field(name="$encode", value="Encode. Example: $encode base64 hi", inline=True)
+    embed.add_field(name="$decode", value="Decode. Example: $decode base64 encoded_text", inline=True)
+
     embed.add_field(name="$software", value="Example: $software build, category list: build, scripts", inline=True)
     embed.add_field(name="$avat", value="Get user`s avatar by User ID", inline=True)
     embed.add_field(name="$srvi", value="Server info by server invite", inline=True)
-    embed.add_field(name="$eumuapi", value="EuMu API", inline=True)
     embed.add_field(name="$opens", value="Open Source", inline=True)
     embed.add_field(name="$i", value="Get user`s all info by User ID", inline=True)
-    embed.add_field(name="$gmail", value="Gmail spammer )(example: $gmail 10 helloworld@gmail.com hello. 10 - count, hello - msg", inline=True)
-    embed.set_footer(text="EuteMuinteam. [ https://discord.gg/invite/DnZD7xN4Zd ]")
+    embed.add_field(name="$gmail", value="Gmail spammer (example: $gmail 10 helloworld@gmail.com hello)", inline=True)
+    embed.set_footer(text="EuteMuin Team. [ https://discord.gg/E7wt4dr7Pe ]")
     await ctx.send(embed=embed)
 @bot.command()
 async def eumuapi(ctx):
@@ -56,7 +56,6 @@ async def ftoken(ctx):
     await ctx.send("This command is deleted!")
 @bot.command()
 async def software(ctx,*, arg0):
-    await ctx.message.delete()
     if(arg0 == "build"):
         embed0=discord.Embed(title="Software Build", description=" ",color=0x9e64b9)
         embed0.add_field(name="Windows 10 Default", value="https://pastebin.com/PD4B7jJG", inline=True)
@@ -76,33 +75,27 @@ async def software(ctx,*, arg0):
         await ctx.send(embed=embed2)
 @bot.command()
 async def srvi(ctx, *, arg):
-	await ctx.message.delete()
 	ivapi = "https://discord.com/api/v8/invites/"+arg
 	embed6=discord.Embed(title="User Info by User ID", description=arg,color=0x9e64b9)
 	embed6.add_field(name="Invite Code API", value=ivapi, inline=True)
 	await ctx.send(embed=embed6)
 @bot.command()
 async def token(ctx, *, arg):
-    await ctx.message.delete()
     stoken = base64.b64encode(str(arg).encode()).decode()
     await ctx.send(stoken)
 @bot.command()
 async def usneme(ctx, *, arg):
-    await ctx.message.delete()
     user = await bot.fetch_user(arg)
     await ctx.send(user.name)
 @bot.command()
 async def tokenmap(ctx):
-    await ctx.message.delete()
     await ctx.send("https://i.imgur.com/7WdehGn.png")
 @bot.command()
 async def avat(ctx, *,  avamember : discord.Member=None):
-    await ctx.message.delete()
     userAvatarUrl = avamember.avatar_url
     await ctx.send(userAvatarUrl)
 @bot.command()
 async def i(ctx, *,arg):
-    await ctx.message.delete()
     user = await bot.fetch_user(arg)
     stoken1 = base64.b64encode(str(arg).encode()).decode()
     av4 = "https://discord.com/api/v8/users/" + arg
@@ -115,7 +108,6 @@ async def i(ctx, *,arg):
     await ctx.send(embed=embed1)
 @bot.command()
 async def eumu(ctx):
-    await ctx.message.delete()
     await ctx.send("https://discord.gg/2jC8h2Bacx\nhttps://discord.gg/xHAnUZZcw2\nhttps://discord.gg/BXgwgHpBva\nhttps://discord.gg/GAFwZU4MBT")
 @bot.command()
 async def gmail(ctx,count=None,bomb_email=None,*,message=None):
@@ -140,10 +132,10 @@ async def gmail(ctx,count=None,bomb_email=None,*,message=None):
         msg = await ctx.send(embed=embed)
         for i in range(x):
             emailsch = random.choice(emails)
-            if(emailsch == email3):
+            if(emailsch == "youremail@gmail.com"):
                 mail = smtplib.SMTP('smtp.gmail.com', 587)
                 mail.starttls()
-                mail.login(email3, email3p)
+                mail.login('youremail@gmail.com', '123')
                 mail_recipient = bomb_email
                 mail_body = message
                 msget = MIMEText(mail_body, 'plain', 'utf-8')
@@ -161,10 +153,10 @@ async def gmail(ctx,count=None,bomb_email=None,*,message=None):
                 embed.add_field(name=f'Sending "{message}"', value=f'**to {bomb_email}**', inline=False)
                 embed.set_footer(text=f"Requested by {ctx.author.name}#{ctx.author.discriminator}")
                 await msg.edit(embed=embed)
-            if(emailsch == email1):
+            if(emailsch == "youremail@gmail.com"):
                 mail = smtplib.SMTP('smtp.gmail.com', 587)
                 mail.starttls()
-                mail.login(email2, email1p)
+                mail.login('youremail@gmail.com', '123')
                 mail_recipient = bomb_email
                 mail_body = message
                 msget = MIMEText(mail_body, 'plain', 'utf-8')
@@ -182,10 +174,10 @@ async def gmail(ctx,count=None,bomb_email=None,*,message=None):
                 embed.add_field(name=f'Sending "{message}"', value=f'**to {bomb_email}**', inline=False)
                 embed.set_footer(text=f"Requested by {ctx.author.name}#{ctx.author.discriminator}")
                 await msg.edit(embed=embed)
-            if(emailsch == email1):
+            if(emailsch == "youremail@gmail.com"):
                 mail = smtplib.SMTP('smtp.gmail.com', 587)
                 mail.starttls()
-                mail.login(email1, email1p)
+                mail.login('youremail@gmail.com', '123')
                 mail_recipient = bomb_email
                 mail_body = message
                 msget = MIMEText(mail_body, 'plain', 'utf-8')
@@ -209,4 +201,4 @@ async def gmail(ctx,count=None,bomb_email=None,*,message=None):
         embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/gmail-30-722694.png")
         await msg.edit(embed=embed)
 
-bot.run("bot token")
+bot.run("token")
