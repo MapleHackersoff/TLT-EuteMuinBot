@@ -1,0 +1,2 @@
+nodemon eutemuinbot.js
+pause

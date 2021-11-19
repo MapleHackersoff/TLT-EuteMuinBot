@@ -1,0 +1,22 @@
+{
+  "name": "eutemuinbot",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "eutemuinbot.js",
+  "dependencies": {
+    "better-owop-js": "^1.1.4",
+    "chalk": "^4.1.2",
+    "crypto-js": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "mineflayer": "^3.9.0",
+    "nodejs-base64-converter": "^1.0.5",
+    "owop-js": "^2.1.5",
+    "socks-proxy-agent": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "index eutemuinbot.js"
+  },
+  "author": "jau",
+  "license": "ISC"
+}
