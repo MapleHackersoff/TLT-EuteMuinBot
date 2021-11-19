@@ -1,0 +1,14 @@
+{
+	"bot": {
+		"token": "super secret",
+		"prefix": "$"
+	},
+	"owner": {
+		"username": "scar17off",
+		"discriminator": "3829",
+		"id": "847566693270290522"
+	},
+	"mcbot": {
+		"max": "50"
+	}
+}
